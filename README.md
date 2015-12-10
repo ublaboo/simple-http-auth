@@ -1,14 +1,14 @@
 SimpleHttpAuth
 ==============
 
-1. Register extension in `config.neon`:
+1, Register extension in `config.neon`:
 
 ```
   extensions:
     simpleHttpAuth: Ublaboo\SimpleHttpAuth\DI\SimpleHttpAuthExtension
 ```
 
-2. Tell which presenters shoul be secured (in case no presenter name given, all presenters are secured). Format - `Module:Module:Presenter`:
+2, Tell which presenters shoul be secured (in case no presenter name given, all presenters are secured). Format - `Module:Module:Presenter`:
 
 ```
   simpleHttpAuth:
