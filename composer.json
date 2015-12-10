@@ -1,0 +1,35 @@
+{
+	"name": "ublaboo/simple-http-auth",
+	"type": "library",
+	"description": "Extension for Nette Framework: set user, password and presenters names to secure and they will be secured via simple http authentification",
+	"keywords": ["security", "simple-http-auth", "extension"],
+	"homepage": "http://ublaboo.paveljanda.com/simple-http-auth",
+	"license": ["MIT"],
+	"support": {
+		"issues": "https://github.com/ublaboo/simple-http-auth/issues"
+	},
+	"authors": [
+		{
+			"name": "Pavel Janda",
+			"homepage": "http://paveljanda.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Ublaboo\\SimpleHttpAuth\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Ublaboo\\SimpleHttpAuth\\Tests\\": "tests"
+		}
+	},
+	"require": {
+		"nette/di"          : "~2.3.0",
+		"nette/application" : "~2.3.0",
+		"nette/http"        : "~2.3.0"
+	},
+	"require-test": {
+		"nette/tester": "~1.6.1"
+	}
+}
