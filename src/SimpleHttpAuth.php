@@ -61,6 +61,12 @@ class SimpleHttpAuth extends Nette\DI\CompilerExtension
 	}
 
 
+	/**
+	 * Authenticate user
+	 * @param  string $username
+	 * @param  string $password
+	 * @return void
+	 */
 	public function authenticate($username, $password)
 	{
 		$url = $this->httpRequest->url;
