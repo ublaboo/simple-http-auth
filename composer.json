@@ -29,7 +29,9 @@
 		"nette/application" : "~2.3.0",
 		"nette/http"        : "~2.3.0"
 	},
-	"require-test": {
-		"nette/tester": "~1.6.1"
+	"require-dev": {
+		"nette/tester"    : "~1.6.1",
+		"mockery/mockery" : "~0.9",
+		"tracy/tracy"     : "~2.3"
 	}
 }

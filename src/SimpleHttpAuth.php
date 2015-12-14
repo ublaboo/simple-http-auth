@@ -23,6 +23,11 @@ class SimpleHttpAuth extends Nette\DI\CompilerExtension
 	 */
 	protected $httpResponse;
 
+	/**
+	 * @var bool
+	 */
+	protected $exit_on_bad_credentials;
+
 
 	/**
 	 * @param string                    $username
@@ -38,10 +43,12 @@ class SimpleHttpAuth extends Nette\DI\CompilerExtension
 		$presenters,
 		Nette\Application\IRouter $router,
 		Nette\Http\IRequest $httpRequest,
-		Nette\Http\IResponse $httpResponse
+		Nette\Http\IResponse $httpResponse,
+		$exit_on_bad_credentials = TRUE
 	) {
 		$this->httpRequest  = $httpRequest;
 		$this->httpResponse = $httpResponse;
+		$this->exit_on_bad_credentials = $exit_on_bad_credentials;
 
 		$request = $router->match($httpRequest);
 
@@ -64,7 +71,9 @@ class SimpleHttpAuth extends Nette\DI\CompilerExtension
 
 			echo '<h1>Authentication failed.</h1>';
 
-			die;
+			if ($this->exit_on_bad_credentials) {
+				die;
+			}
 		}
 	}
 
