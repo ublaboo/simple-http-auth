@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/ublaboo/simple-http-auth.svg?branch=master)](https://travis-ci.org/ublaboo/simple-http-auth)
+[![Latest Stable Version](https://poser.pugx.org/ublaboo/simple-http-auth/v/stable)](https://packagist.org/packages/ublaboo/simple-http-auth)
+[![License](https://poser.pugx.org/ublaboo/simple-http-auth/license)](https://packagist.org/packages/ublaboo/simple-http-auth)
+[![Total Downloads](https://poser.pugx.org/ublaboo/simple-http-auth/downloads)](https://packagist.org/packages/ublaboo/simple-http-auth)
+
 SimpleHttpAuth
 ==============
 
