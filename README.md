@@ -2,7 +2,6 @@
 [![Latest Stable Version](https://poser.pugx.org/ublaboo/simple-http-auth/v/stable)](https://packagist.org/packages/ublaboo/simple-http-auth)
 [![License](https://poser.pugx.org/ublaboo/simple-http-auth/license)](https://packagist.org/packages/ublaboo/simple-http-auth)
 [![Total Downloads](https://poser.pugx.org/ublaboo/simple-http-auth/downloads)](https://packagist.org/packages/ublaboo/simple-http-auth)
-[![HHVM Status](https://img.shields.io/hhvm/ublaboo/simple-http-auth/master.svg?style=flat)](http://hhvm.h4cc.de/package/ublaboo/simple-http-auth)
 
 SimpleHttpAuth
 ==============
