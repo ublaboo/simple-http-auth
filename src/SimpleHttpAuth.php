@@ -52,6 +52,10 @@ class SimpleHttpAuth extends Nette\DI\CompilerExtension
 
 		$request = $router->match($httpRequest);
 
+		if (!$request) {
+			return;
+		}
+
 		/**
 		 * Eccapt either all presenter or just the specified ones
 		 */
