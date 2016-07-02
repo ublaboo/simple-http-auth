@@ -30,7 +30,8 @@
 		"nette/http"        : "^2.3|^2.4"
 	},
 	"require-dev": {
-		"nette/tester"              : "~1.6.1",
+		"nette/tester"              : "~1.7",
 		"mockery/mockery"           : "~0.9"
-	}
+	},
+	"minimum-stability": "dev"
 }
