@@ -7,14 +7,23 @@
 SimpleHttpAuth
 ==============
 
-1, Register extension in `config.neon`:
+
+
+
+1, Install via composer
+```yaml
+composer require ublaboo/simple-http-auth
+```
+
+
+2, Register extension in `config.neon`:
 
 ```php
 extensions:
 	simpleHttpAuth: Ublaboo\SimpleHttpAuth\DI\SimpleHttpAuthExtension
 ```
 
-2, Tell which presenters shoul be secured (in case no presenter name given, all presenters are secured). Format - `Module:Module:Presenter`:
+3, Tell which presenters shoul be secured (in case no presenter name given, all presenters are secured). Format - `Module:Module:Presenter`:
 
 ```php
 simpleHttpAuth:
