@@ -50,6 +50,10 @@ class SimpleHttpAuth extends Nette\DI\CompilerExtension
 		$this->httpResponse = $httpResponse;
 		$this->exit_on_bad_credentials = $exit_on_bad_credentials;
 
+		if (empty($username) && empty($password)) {
+			return;
+		}
+
 		$request = $router->match($httpRequest);
 
 		if (!$request) {
