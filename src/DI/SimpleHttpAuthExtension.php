@@ -14,8 +14,8 @@ class SimpleHttpAuthExtension extends Nette\DI\CompilerExtension
 {
 
 	private $defaults = [
-		'username' => 'admin',
-		'password' => '1234567890',
+		'username' => '',
+		'password' => '',
 		'presenters' => []
 	];
 

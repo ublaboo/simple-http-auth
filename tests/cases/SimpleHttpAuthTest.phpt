@@ -8,7 +8,7 @@ use Tester,
 	Nette,
 	Ublaboo;
 
-require __DIR__ . '/../bootstrap.php'; 
+require __DIR__ . '/../bootstrap.php';
 
 final class SimpleHttpAuthTest extends Tester\TestCase
 {
@@ -136,6 +136,31 @@ final class SimpleHttpAuthTest extends Tester\TestCase
 			'admin',
 			'1234567890',
 			['Front:Secured', 'Front:AnotherSecured'],
+			$this->router,
+			$this->request,
+			$this->response,
+			FALSE
+		);
+
+		$response_content = ob_get_clean();
+
+		Assert::null($this->response->header);
+		Assert::null($this->response->code);
+		Assert::same('', $response_content);
+	}
+
+
+	public function testEmptyCredentials()
+	{
+		$this->setupResponse();
+		$this->setupRequest('Front:Homepage', NULL, NULL);
+
+		ob_start();
+
+		$auth = new Ublaboo\SimpleHttpAuth\SimpleHttpAuth(
+			'',
+			'',
+			[],
 			$this->router,
 			$this->request,
 			$this->response,
