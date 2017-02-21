@@ -32,7 +32,8 @@ class SimpleHttpAuthExtension extends Nette\DI\CompilerExtension
 			->setArguments([
 				$config['username'],
 				$config['password'],
-				$config['presenters']
+				$config['presenters'],
+				$builder->parameters['consoleMode'],
 			]);
 	}
 
