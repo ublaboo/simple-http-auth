@@ -16,6 +16,7 @@ class SimpleHttpAuthExtension extends Nette\DI\CompilerExtension
 	private $defaults = [
 		'username' => '',
 		'password' => '',
+		'consoleAuth' => TRUE,
 		'presenters' => []
 	];
 
@@ -33,6 +34,7 @@ class SimpleHttpAuthExtension extends Nette\DI\CompilerExtension
 				$config['username'],
 				$config['password'],
 				$config['presenters'],
+				$config['consoleAuth'],
 				$builder->parameters['consoleMode'],
 			]);
 	}
