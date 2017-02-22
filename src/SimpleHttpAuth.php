@@ -65,7 +65,7 @@ class SimpleHttpAuth extends Nette\DI\CompilerExtension
 		try {
 			$request = $router->match($httpRequest);
 
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 
 			return;
 		}
