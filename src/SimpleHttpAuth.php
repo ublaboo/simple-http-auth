@@ -33,6 +33,8 @@ class SimpleHttpAuth extends Nette\DI\CompilerExtension
 	 * @param string                    $username
 	 * @param string                    $password
 	 * @param array                     $presenters   If array of presenters is empty, accept all
+	 * @param bool                      $consoleAuth
+	 * @param bool                      $isConsole
 	 * @param Nette\Application\IRouter $router
 	 * @param Nette\Http\IRequest       $httpRequest
 	 * @param Nette\Http\IResponse      $httpResponse
@@ -41,6 +43,8 @@ class SimpleHttpAuth extends Nette\DI\CompilerExtension
 		$username,
 		$password,
 		$presenters,
+		$consoleAuth,
+		$isConsole,
 		Nette\Application\IRouter $router,
 		Nette\Http\IRequest $httpRequest,
 		Nette\Http\IResponse $httpResponse,
@@ -49,6 +53,10 @@ class SimpleHttpAuth extends Nette\DI\CompilerExtension
 		$this->httpRequest  = $httpRequest;
 		$this->httpResponse = $httpResponse;
 		$this->exit_on_bad_credentials = $exit_on_bad_credentials;
+
+		if ($consoleAuth === FALSE && $isConsole === TRUE) {
+			return;
+		}
 
 		if (empty($username) && empty($password)) {
 			return;
