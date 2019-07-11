@@ -10,7 +10,7 @@ namespace Ublaboo\SimpleHttpAuth;
 
 use Nette;
 
-class SimpleHttpAuth extends Nette\DI\CompilerExtension
+class SimpleHttpAuth
 {
 
 	/**
@@ -77,7 +77,7 @@ class SimpleHttpAuth extends Nette\DI\CompilerExtension
 		/**
 		 * Eccapt either all presenter or just the specified ones
 		 */
-		if (empty($presenters) || in_array($request->getPresenterName(), $presenters)) {
+		if (empty($presenters) || (isset($request['presenter']) && in_array($request['presenter'], $presenters))) {
 			$this->authenticate($username, $password);
 		}
 	}

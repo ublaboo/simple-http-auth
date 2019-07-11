@@ -57,7 +57,9 @@ final class SimpleHttpAuthTest extends Tester\TestCase
 
 		$this->router->shouldReceive('match')
 			->withArgs([$this->request])
-			->andReturn($this->appRequest);
+			->andReturn([
+				'presenter' => $return_presenter,
+			]);
 	}
 
 

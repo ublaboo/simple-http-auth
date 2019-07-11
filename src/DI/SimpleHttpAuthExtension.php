@@ -9,40 +9,43 @@
 namespace Ublaboo\SimpleHttpAuth\DI;
 
 use Nette;
+use Nette\Schema\Expect;
+use Nette\Schema\Schema;
 
 class SimpleHttpAuthExtension extends Nette\DI\CompilerExtension
 {
 
-	private $defaults = [
-		'username' => '',
-		'password' => '',
-		'consoleAuth' => TRUE,
-		'presenters' => []
-	];
+	public function getConfigSchema(): Schema
+	{
+		return Expect::structure([
+			'username' => Expect::string(NULL),
+			'password' => Expect::string(NULL),
+			'consoleAuth' => Expect::bool(true),
+			'presenters' => Expect::array(),
+		]);
+	}
 
 
 	public function loadConfiguration()
 	{
-		$config = $this->_getConfig();
-
 		$builder = $this->getContainerBuilder();
+		$config = $this->config;
 
 		$builder->addDefinition($this->prefix('simpleHttpAuth'))
-			->setClass('Ublaboo\SimpleHttpAuth\SimpleHttpAuth')
-			->addTag('run')
+			->setClass(\Ublaboo\SimpleHttpAuth\SimpleHttpAuth::class)
 			->setArguments([
-				$config['username'],
-				$config['password'],
-				$config['presenters'],
-				$config['consoleAuth'],
+				$config->username,
+				$config->password,
+				$config->presenters,
+				$config->consoleAuth,
 				$builder->parameters['consoleMode'],
 			]);
 	}
 
 
-	private function _getConfig()
+	public function afterCompile(Nette\PhpGenerator\ClassType $class)
 	{
-		return $this->validateConfig($this->defaults, $this->config);
+		$class->getMethod('initialize')->addBody('$this->getService(?);', [$this->prefix('simpleHttpAuth')]);
 	}
 
 }
